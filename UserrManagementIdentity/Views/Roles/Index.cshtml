@@ -1,0 +1,26 @@
+﻿@model List<IdentityRole>
+
+<div class="container">
+
+    @await Html.PartialAsync("_AddRolePartial", new AddRoleViewModel());
+    <div class="row">
+        <div class="col">
+
+            <table>
+                <thead>
+                    <tr><th>Name</th></tr>
+                </thead>
+                <tbody>
+                    @foreach (var role in Model)
+                    {
+                        <tr><td>@role.Name</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

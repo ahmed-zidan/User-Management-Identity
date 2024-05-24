@@ -1,0 +1,35 @@
+﻿@model IEnumerable<UserRoleViewModel>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>FirstName</td>
+                        <td>LastName</td>
+                        <td>Email</td>
+                        <td>Roles</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model)
+                    {
+                    <tr>
+                        <td>@row.Id</td>
+                        <td>@row.FirstName</td>
+                        <td>@row.LastName</td>
+                        <td>@row.Email</td>
+                        <td>@string.Join(",",row.Roles)</td>
+                        <td>
+                            <a class="btn btn-primary" asp-controller="User" asp-action="ManageRoles" asp-route-id="@row.Id">Manage Roles</a>
+                           
+                        </td>
+                    </tr>
+                }
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
